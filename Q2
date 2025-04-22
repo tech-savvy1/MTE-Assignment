@@ -1,12 +1,12 @@
-**Q2. Write a program to find the sum of elements in a given range [L, R] using a prefix sum 
+Q2. Write a program to find the sum of elements in a given range [L, R] using a prefix sum 
 array. Write its algorithm, program. Find its time and space complexities. Explain with 
-suitable example.**
+suitable example.
 
-**Algorithm:**
+Algorithm:
 - Compute the prefix sum array.
 - For any range [L, R], return prefix[R] - prefix[L-1] (if L > 0) else prefix[R].
 
-**Program:**
+Program:
 public class PrefixSumArray {
     static void prefixSum(int[] arr, int[] prefix, int n){
         prefix[0] = arr[0];
@@ -32,8 +32,8 @@ public class PrefixSumArray {
     }
 }
 
-**Time Complexity:**
+Time Complexity:
 Prefix array creation: O(n)
 Range sum query: O(1)
 
-**Space Complexity:** O(n)
+Space Complexity: O(n)
