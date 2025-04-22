@@ -1,0 +1,17 @@
+Q1. Explain the concept of a prefix sum array and its applications. 
+
+A Prefix Sum Array is an array where each element at index i is the sum of all elements from index 0 to i in the original array.
+
+If arr[] = {a0, a1, a2, ..., an},
+then:
+prefix[0] = arr[0]
+prefix[i] = prefix[i-1] + arr[i] for i > 0
+
+For an array [2, 4, 6, 8], the prefix sum array is [2, 6, 12, 20].
+
+Applications:
+- Efficient range sum queries.
+- Subarray problems.
+- Optimization in Dynamic Programming.
+- Equilibrium index & partition checks.
+
