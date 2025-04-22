@@ -12,6 +12,7 @@ For an array [2, 4, 6, 8], the prefix sum array is [2, 6, 12, 20].
 Applications:
 - Efficient range sum queries.
 - Subarray problems.
+- Solving problems involving prefix/suffix comparisons.
 - Optimization in Dynamic Programming.
 - Equilibrium index & partition checks.
 
