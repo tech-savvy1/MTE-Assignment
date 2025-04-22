@@ -1,0 +1,38 @@
+Q4. Check if an array can be split into two parts such that the sum of the prefix equals the 
+sum of the suffix. Write its algorithm, program. Find its time and space complexities. 
+Explain with suitable example. 
+
+Problem:
+Check if there's an index where prefix sum equals suffix sum.
+
+Algorithm:
+- Compute total sum.
+- Traverse and update prefix sum.
+- If 2 * prefixSum + arr[i] == total, it's a valid split.
+
+
+Program:
+public class SplitArrayEqualPrefixSuffixSum {
+    static boolean splitArray(int arr[], int n){
+        int prefix=0, total=0;
+        for(int i=0;i<n;i++){
+            total+=arr[i];
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            total -= arr[i];
+            if (prefix == total) return true;
+            prefix += arr[i];
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int arr[] = {1, 2, 3, 3};
+        int n = arr.length;
+        System.out.println(splitArray(arr, n));
+    }
+}
+
+Time Complexity: O(n)
+Space Complexity: O(1)
