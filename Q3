@@ -1,0 +1,34 @@
+Q3. Solve the problem of finding the equilibrium index in an array. Write its algorithm, 
+program. Find its time and space complexities. Explain with suitable example. 
+
+An index i is an equilibrium index if the sum of elements before it equals the sum after it.
+
+Algorithm:
+- Compute the total sum.
+- Traverse the array, keep a running left sum.
+- At each index i, check if leftSum == totalSum - leftSum - arr[i].
+
+Program:
+class EquilibriumIndex {
+    static int equilibrium(int arr[], int n){
+        int totalSum=0, leftSum=0;
+        for(int i=0; i<n; i++){
+            totalSum+=arr[i];
+        }
+
+        for(int i=0; i<n; i++){
+            totalSum-=arr[i];
+            if(leftSum==totalSum) return i;
+            leftSum+=arr[i];
+        }
+        return -1;
+    }
+    public static void main(String[] args) {
+        int arr[] = {-7, 1, 5, 2, -4, 3, 0};
+        int n = arr.length;
+        System.out.println(equilibrium(arr, n));
+    }
+}
+
+Time Complexity: O(n)
+Space Complexity: O(1)
