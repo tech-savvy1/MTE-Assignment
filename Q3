@@ -6,7 +6,7 @@ An index i is an equilibrium index if the sum of elements before it equals the s
 Algorithm:
 - Compute the total sum.
 - Traverse the array, keep a running left sum.
-- At each index i, check if leftSum == totalSum - leftSum - arr[i].
+- At each index i, check if leftSum == totalSum.
 
 Program:
 class EquilibriumIndex {
