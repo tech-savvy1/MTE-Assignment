@@ -5,35 +5,37 @@ example.
 Problem:
 Given a string, find the length of the longest substring without repeating characters.
 
-Algorithm (Sliding Window + HashSet):
+Algorithm (Sliding Window + HashMap):
 - Use two pointers left and right.
-- Use a HashSet to track characters in the current window.
-- Move right, if duplicate found, remove from left until it's unique.
+- Use a HashMap to track characters in the current window.
+- Move right, if duplicate found, update left.
 - Update max length at every step.
 
-import java.util.*;
+import java.util.HashMap;
 
-public class LongestUniqueSubstring {
-    public static int lengthOfLongestSubstring(String s) {
-        Set<Character> set = new HashSet<>();
-        int left = 0, maxLength = 0;
-
-        for (int right = 0; right < s.length(); right++) {
-            while (set.contains(s.charAt(right))) {
-                set.remove(s.charAt(left++));
+public class LongestSubstring {
+    static int longestSubstring(String s){
+        HashMap <Character, Integer> map = new HashMap<>();
+        int left=0, right=0;
+        int n = s.length();
+        int len=0;
+        while(right<n){
+            if(map.containsKey(s.charAt(right))){
+                left = Math.max(left, map.get(s.charAt(right)) + 1);
             }
-            set.add(s.charAt(right));
-            maxLength = Math.max(maxLength, right - left + 1);
+            len = Math.max(len, right-left+1);
+            map.put(s.charAt(right), right);
+            right++;
         }
-        return maxLength;
+        return len;
     }
 
-    public static void main(String[] args) {
-        String s = "abcabcbb";
-        System.out.println("Longest unique substring length: " + lengthOfLongestSubstring(s));
+    public static void main(String args[]) {
+        String str = "abba";
+        System.out.println("The length of the longest substring without repeating characters is " + longestSubstring(str));
     }
 }
 
 Time Complexity: O(n)
-Space Complexity: O(min(n, m)) where m = number of unique characters
+Space Complexity: O(n)
 
