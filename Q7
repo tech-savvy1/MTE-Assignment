@@ -1,0 +1,14 @@
+Q7. Explain the sliding window technique and its use in string problems.  
+
+The Sliding Window Algorithm is a technique used to efficiently solve problems that involve a window or range in the input data 
+(arrays or strings) and then moving that window across the data to perform some operation within the window. 
+It is used to reduce time complexity from O(n²) to O(n) in problems dealing with contiguous subarrays or substrings.
+
+It is commonly used in algorithms like finding subarrays with a specific sum, finding the longest substring with unique characters, 
+or solving problems that require a fixed-size window to process elements efficiently
+
+Uses in Strings:
+- Substring without repeating characters
+- Anagrams in a string
+- Longest substring with at most k distinct characters
+- Maximum vowels in a window
