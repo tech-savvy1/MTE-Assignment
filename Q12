@@ -1,0 +1,57 @@
+Q12. . Rearrange numbers into the lexicographically next greater permutation. Write its 
+algorithm, program. Find its time and space complexities. Explain with suitable 
+example.
+
+Problem:
+Rearrange numbers into the next lexicographical permutation.
+
+Algorithm:
+- Find the first decreasing element from right.
+- Find element just larger than it on right.
+- Swap them.
+- Reverse right part after the first decreasing element.
+
+
+Program:
+import java.util.Arrays;
+
+public class NextPermutation {
+    static void permutation(int arr[]){
+        int i=arr.length-2;
+        while(i>=0 && arr[i]>=arr[i+1]){
+            i--;
+        }
+        
+        if(i>=0){
+            int j=arr.length-1;
+            while(arr[j]<=arr[i]){
+                j--;
+            }
+            swap(arr, i, j);
+        }
+        reverse(arr, i+1, arr.length-1);
+    }
+
+
+    static void swap(int arr[], int i, int j){
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
+
+    static void reverse(int arr[], int start, int end){
+        while(start<end){
+            swap(arr, start, end);
+            start++;
+            end--;
+        }
+    }
+    public static void main(String[] args) {
+        int[] arr = {1,2,3};
+        permutation(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
+Time: O(n)
+Space: O(1)
