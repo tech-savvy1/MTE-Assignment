@@ -1,1 +1,41 @@
+Q10. Generate all permutations of a given string. Write its algorithm, program. Find its time 
+and space complexities. Explain with suitable example. 
 
+Problem:
+Generate all permutations of the input string.
+
+Algorithm (Backtracking):
+- Swap current character with each following one.
+- Recurse on the remaining substring.
+- Backtrack after each recursive call.
+
+Program:
+public class Permutations {
+    public static void permute(String str, int l, int r) {
+        if (l == r) System.out.println(str);
+        else {
+            for (int i = l; i <= r; i++) {
+                str = swap(str, l, i);
+                permute(str, l + 1, r);
+                str = swap(str, l, i); // backtrack
+            }
+        }
+    }
+
+    public static String swap(String s, int i, int j) {
+        char[] ch = s.toCharArray();
+        char temp = ch[i];
+        ch[i] = ch[j];
+        ch[j] = temp;
+        return String.valueOf(ch);
+    }
+
+    public static void main(String[] args) {
+        String str = "abc";
+        System.out.println("Permutations:");
+        permute(str, 0, str.length() - 1);
+    }
+}
+
+Time: O(n * n!) — n! permutations, each takes O(n) time to print
+Space: O(n) for recursion stack
